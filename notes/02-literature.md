@@ -1,0 +1,74 @@
+# Literature
+
+## Part 1 (morning)
+
+As required in the challenge, I first thought i should have explored the model myself first. But after writing my hypotheses, I couldn't stop thinking about how little I knew about PSA, or wondering if someone had already tested this. I even doubted the topic was relevant. But I had already started, so I want to see it through.
+
+### Hugging Face first, with a small detour
+
+I started on Hugging Face because it is the place the challenge points to, and I thought I would quickly see what kind of medical models and datasets exist. I have to admit that I got distracted for a while. I was curious about what other people had done for previous Fatima challenges, so I typed "blind spot" and "fatima" in the dataset search and opened the ones that looked serious.
+
+The first one I opened tests Qwen3-4B on Tigrinya words and regional synonyms, and the author says the model got around 87% of basic words wrong while still being very confident ([adeyebuy/tigrinya-blind-spot-qwen3-4b](https://huggingface.co/datasets/adeyebuy/tigrinya-blind-spot-qwen3-4b)). Another one tests Whisper on Sindhi audio, where the model confuses Sindhi with Urdu or Punjabi and sometimes writes text on silent audio ([AshvinLohana/FF_blindspot_task](https://huggingface.co/datasets/AshvinLohana/FF_blindspot_task)). I also found one that uses a small vision model, Qwen2-VL-2B, on photos of waste in Bangladeshi rivers, and the model does much worse there than on the usual waste dataset ([rezaurrahman/bangladesh-waste-blindspot](https://huggingface.co/datasets/rezaurrahman/bangladesh-waste-blindspot)). That last page doesn't mention Fatima, so I'm not sure it was a submission.
+
+After looking at a few more, I noticed that most of them are about languages or culture, that only a few use images, that I didn't find any about medical documents. I felt relieved and a bit worried at the same time, because I wondered whether nobody had done it simply because it was a bad idea or if I should just push the research a little further but I stoppd sinc thy gave and overall good insight of what I should myself do.
+
+I then went back to my own topic and searched for "lab report", "medical report" and "PSA" in models and datasets. Most results were not related, but some models did caught my attention. The first is MedGemma 1.5 4B from Google ([model card](https://huggingface.co/google/medgemma-1.5-4b-it)), a small medical model whose card says it can read lab reports. The same card also says it was not tested on conversations with several messages and that it reacts more to the way the prompt is written than Gemma 3 does. It seemed like a good candidate for my test. The second is MedRepBench ([dataset](https://huggingface.co/datasets/MedRepBench/MedRepBench)), a dataset of real Chinese medical report images, and I went to read the paper behind it.
+
+Hugging Face helped me see which models and datasets exist, but I still had no idea whether anybody had checked if these models give correct and safe explanations to patients. I thought perhaps there might exist some hat would answer that better, so I moved to Google Scholar and arXiv.
+
+### Google Scholar and arXiv
+
+My first searches were quite general because I didn't know the right words yet. I tried "AI explain blood test results", "ChatGPT lab results patients", "ChatGPT PSA" and "vision language model lab report". The "ChatGPT PSA" search mostly gave me studies where urologists ask ChatGPT and other chatbots general questions about prostate cancer and then grade the answers. One typical example is a short study where three urologists rated the answers of five chatbots to 22 questions about screening, treatment and complications ([Zhu, Mou and Chen, 2023, Journal of Translational Medicine]([https://translational-medicine.biomedcentral.com/articles/10.1186/s12967-023-04123-5](https://translational-medicine.biomedcentral.com/articles/10.1186/s12967-023-04123-5))). Most answers were judged accurate, although the quality dropped when a question described a specific situation that needed some reasoning. These studies are interesting, but they test what the model knows about the disease in general. Nobody gives the model a real lab report, a photo, or details about one particular man such as his age or his medicines, and that is the part I want to look at. So I only kept the papers below.
+
+**He et al., 2024, Journal of Medical Internet Research** ([doi.org/10.2196/56655](https://doi.org/10.2196/56655)) The authors took 53 real questions from Yahoo! Answers, where people ask what their blood or urine results mean, and compared the answers of GPT-4, GPT-3.5, LLaMA 2, MedAlpaca and ORCA_mini with the best human answer. GPT-4 and GPT-3.5 were judged better than the human answers almost every time, while the small medical model MedAlpaca was much weaker. The part that interested me is in their discussion, where they say the answers were not adapted to the person and the models did not ask clarifying questions, even when important information like age or sex was missing. They also give examples of mistakes, like a critically low iron value being described only as "abnormal". This is very close to my [hypothese 5](01-hypotheses.md), even though everything in this study is text and nothing is about PSA.
+
+**MedRepBench, Shang et al., 2025** ([arXiv 2508.16674](https://arxiv.org/abs/2508.16674)) This benchmark has overall around 1,925 images of real Chinese medical reports, and models are asked to extract each line of the report (the test, the value, the unit, the normal range and whether it is abnormal) and then explain the report to the patient. The authors write clearly that they do not evaluate the patient's history, and that the explanation should stay grounded in the report. When I read that, I kind of realized it is the behavior I described in my [hypothese 1](01-hypotheses.md), where I guesse the model would repeat what the report says. In their setup it is the expected answer, and in my setup it is one of the thing I would like to question.
+
+**MedGemma 1.5 technical report, Google, 2026** ([arXiv 2604.05081](https://arxiv.org/abs/2604.05081)) I opened this report to understand what "can read lab reports" really means for MedGemma. They test it on four lab report datasets, and three of them are PDFs, one of which is generated synthetically. The fourth one is a small set of 14 report images from a public Mendeley dataset. The paper says the data includes both digital and scanned documents, but I didn't see any phone photos, and the task is actually about extraction of values, not explaining what they mean for a specific person. I also hoped to see Qwen3-VL-4B in the same table to compare, but they write that they could not run all evaluations with it.
+
+I stopped there for the morning. My plan for tonight was to look at how these models handle photos instead of clean documents, whether they ask questions when information is missing, and to learn more about PSA itself.
+
+## Part 2 (evening)
+
+In the evening I searched with more precise words, because the morning papers had given me some vocabulary. I used "document VQA real photos" and "VLM blur document" for the photo question, "LLM ask clarifying questions medical" and "medical disclaimer LLM" for the behavior of the models, then "PSA normal range by age", "PSA black men" and "prostate cancer Cameroon" for the medical side.
+
+### Photos of documents
+
+**WildDoc, Wang et al., 2025** ([arXiv 2505.11015](https://arxiv.org/abs/2505.11015)) The authors here took real photos of documents in different conditions, with changes in light, angle and folds, and compared the results with the clean scanned versions. It says GPT-4o loses about 35 points on average, and when the same document is photographed four times, the models often give different answers. If big models have this much trouble, I expect a 4B model to struggle at least as much, which goes in the direction of my [hypothese 4](01-hypotheses.md). Even so, this paper doesn't cover everything I need. The documents are ordinary pages and tables, and none of them are lab reports. The photos are taken in bad conditions, but they are never sent through WhatsApp, which compresses the image again. And the authors only check if the answer is right or wrong. They don't look at whether the model admits that it can't read a number, which is what my [hypothese 4](01-hypotheses.md) is about.
+
+### Asking questions
+
+**MediQ, Li et al., 2024** ([arXiv 2406.00922](https://arxiv.org/abs/2406.00922)) In this benchmark the model plays a doctor who starts with incomplete information and can ask a simulated patient for more details before giving an answer. What surprised me is that simply telling the model to ask questions apprently made the results worse. The authors had better results when the model first estimates whether it is confident enough, and holds its answer when it is not, which improved accuracy by 22.3%. Together with what He et al. wrote, this makes me think my [hypothese 5](01-hypotheses.md) is reasonable, and it also tells me that a good fix will probably need more than one extra sentence in the prompt.
+
+### "Please see a doctor"
+
+**Sharma, Alaa and Daneshjou, 2025, npj Digital Medicine** ([doi.org/10.1038/s41746-025-01943-1](https://doi.org/10.1038/s41746-025-01943-1))
+This one made me rethink my [hypothese 2](01-hypotheses.md). The authors measured how often AI models add a medical warning to their answers between 2022 and 2025, and for language models it went from about 26% of answers to less than 1%. He et al. had seen GPT-4 add warnings consistently in their 2024 study, so the behavior seems to change a lot depending on the model and the year. I now plan to check two things in my tests, first whether the model tells the family to see a doctor at all, and then whether the urgency changes when the value changes.
+
+### Learning about PSA
+
+**Morgan et al., 1996, New England Journal of Medicine** ([doi.org/10.1056/NEJM199608013350502](https://doi.org/10.1056/NEJM199608013350502)) I learned here that a "normal" PSA depends on age, and this study proposes specific ranges for Black men, going up to 2.0 ng/mL in their 40s, 4.0 in their 50s, 4.5 in their 60s and 5.5 in their 70s. According to the authors, using the usual ranges would miss many cancers in Black men. These are American men and not Cameroonian men, so I can't apply the numbers directly, but it already shows me that a single "< 4" printed on a report can give a wrong feeling of safety. While reading around this topic, I also saw that some medicines like finasteride lower the PSA by about half, and that "free PSA" is used when the value is between 4 and 10. I didn't read these papers in detail yet, and I will perhaps need a doctor to tell me which of these things really matter for my tests.
+
+### The situation in Cameroon
+
+**GLOBOCAN 2024 fact sheet for Cameroon, IARC** ([PDF](https://gco.iarc.who.int/media/globocan/factsheets/populations/120-cameroon-fact-sheet.pdf)) Prostate cancer is the most common cancer in men in Cameroon, with surprisingly 1,829 new cases and 1,124 deaths estimated for 2024. I had first seen a different number (2,050 cases) in an article, and after checking I understood that it came from the 2022 estimates, so I will use the 2024 fact sheet.
+
+I also found a study from Douala on 100 patients diagnosed between 2011 and 2015, where the average PSA at diagnosis was 43.23 ng/mL and the authors conclude that diagnosis happens late ([Scientific Research Publishing](https://www.scirp.org/journal/paperinformation?paperid=84487)). This publisher is known for having a light review process, so I take the numbers with some caution, but it is one of the few studies I found about patients in Douala..
+
+When I searched for how people in Africa share medical information on WhatsApp, I only found studies about health workers. One of them looked at a WhatsApp group of a South African district hospital and found patient-identifying information in 109 of 3,340 messages ([Meyer et al., South African Medical Journal, 2021](https://www.scielo.org.za/scielo.php?script=sci_arttext&pid=S0256-95742021000200018)). I didn't find anything about families sharing results among themselves, or about people in Cameroon asking an AI to explain or confirm their results.
+
+## What I learned
+
+So overall I learned that a "normal" PSA depends on the age of the man and maybe on his origin, and that the range printed on a report doesn't take this into account. I also learned that some medicines lower the PSA, and that a report has no way to show it if the man is taking them. Doctors seem to look at how the PSA evolves over the years, and the last number alone doesn't tell the whole story. Finally, I was surprised to read that AI models give fewer medical warnings than before.
+
+## Where my hypotheses stand (before testing)
+
+For [hypothese 1](01-hypotheses.md), the idea that the model just repeats the report looks plausible, since the main benchmark I found expects exactly that behavior. My [hypothese 2](01-hypotheses.md) is less clear now, because the recent study on warnings suggests that the model might give no warning at all instead of always the same one, so I will test both cases. For [hypothese 3](01-hypotheses.md), about missing the trend, I found almost nothing, which probably makes it my most original test. [Hypothese 4](01-hypotheses.md) is supported by WildDoc for photos in general, and [hypothese 5](01-hypotheses.md) is supported by both He et al. and MediQ.
+
+## Gap
+
+The papers I found test whether models can read a report, or whether they answer questions about lab results written in text. Other papers show that photos make document reading harder, and that models rarely ask for missing information. I didn't find anyone who puts all of this together in the situation my family went through, with a small open model, a photo of a paper PSA report sent on WhatsApp, and a value that looks normal on its own but may not be normal for this man, because of his age, his medicine or the way his results changed over the years.
+
+# Open
+
+I still don't know which "normal" ranges I should use as the correct answer, and I think I need a doctor's opinion for that. I also need to check whether MedGemma runs on the free Colab GPU. And I still have to find a way to judge if the urgency in an answer is right, without being a doctor myself.
