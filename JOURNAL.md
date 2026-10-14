@@ -38,3 +38,10 @@ Then I made a two-page document in French and emailed it separately to five urol
 I also sent a short LinkedIn message to the ones I found there.
 
 I only have about a day, so I'm not expecting much, but one answer would already help. If nobody replies, I'll keep my own levels and say it clearly in the README. Today I start on the data and the fictional reports.
+
+
+## 2026-10-14 (morning)
+
+I got the CARET data and downloaded it and converted it to CSV with a small Python script (thanks claude) which contains 683 blood draws from 141 men. As I was looking at it, I realized most of the draws are about one year apart and not two years apart as I thought, so I changed that in my notes. 
+
+Man 49 caught my attention. His PSA went from 0.93 to 1.67, then 2.08, then 3.51 over about five years, and every single one was under 4, and he was diagnosed with prostate cancer soon after his last one. I think this is the type of case that I would use in my third hypothesis.
