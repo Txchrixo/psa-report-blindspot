@@ -20,3 +20,21 @@ I also realized that I can't figure out on my own what the "right answer" is for
 
 Today, with the help of Perplexity to check facts and find information in papers, I wrote most of my clinical reference file. I started from what I had noted in the literature and went back to the sources to try to understand where the numbers come from. I was a bit confused when I found that the ranges from Lagos are higher than the American ones for Black men.
 
+## 2026-10-13 (night, finished after 2 am)
+
+Tonight I finished the clinical reference file. I went back to the sources I wasn't sure about. This time I opened the European guideline itself, and it says two things I didn't expect. A PSA between 3 and 10 should be repeated after about four weeks, and a rectal exam doesn't change the PSA, even though some lab pages say the opposite. I chose to follow the guideline.
+
+I was also surprised that the small finasteride pill for hair loss lowers the PSA too, and that labs don't all print the same limit (Mayo Clinic prints 4.5 instead of 4).
+
+I gave each of my nine cases a fixed level, so I can still run my tests if no doctor answers. I also added a safety rule for serious symptoms, because then the symptoms matter more than the PSA.
+
+Then I made a two-page document in French and emailed it separately to five urologists who published on prostate cancer in Cameroon:
+- Dr Frantz Guy Epoupa Ngalle (Hôpital Général de Douala)
+- Dr Marcella Biyouma (Hôpital Laquintinie, Douala)
+- Dr Cyril Kamadjou (Douala)
+- Dr Jean Cédrick Fouda (Hôpital Central de Yaoundé)
+- Dr Landry Oriole Mbouché (Yaoundé)
+
+I also sent a short LinkedIn message to the ones I found there.
+
+I only have about a day, so I'm not expecting much, but one answer would already help. If nobody replies, I'll keep my own levels and say it clearly in the README. Today I start on the data and the fictional reports.
