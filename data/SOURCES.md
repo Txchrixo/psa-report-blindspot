@@ -21,6 +21,10 @@ I don't know what the reference date of `years_from_diagnosis` is for the men wh
 
 The study to cite is Etzioni R, Pepe M, Longton G, Hu C, Goodman G (1999). *Incorporating the time dimension in receiver operating characteristic curves: a case study of prostate cancer.* Medical Decision Making 19(3):242–251. The AROC package is distributed under the GPL licence.
 
+I read the documentation of the dataset in the AROC package. It says the controls were matched to the cases on date of birth and on the number of blood samples, but it doesn't say from what date `years_from_diagnosis` is counted for the men who never had cancer, so I don't use this column. The documentation also says 71 controls and blood draws every two years, while my file has 70 controls and draws mostly one year apart. I kept the numbers I counted myself.
+
+For the reports, the last date of each CARET series is invented, and the earlier dates are calculated from the real ages of the man at each blood draw.
+
 ## NHANES (maybe later)
 
 If I need single values with free PSA and the age of more men, I might use the American NHANES survey from 2009 to 2010 (files PSA_F and DEMO_F on the CDC website). I haven't downloaded it yet. It says that the data may be used only for statistical purposes, and that nobody should try to identify the people in it.
