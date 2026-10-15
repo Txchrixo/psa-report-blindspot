@@ -42,7 +42,7 @@ SEED = 2026  # fixed so the same reports come out every time
 CREAM, GOLD = "#F9F4EB", "#C78E3F"
 
 # Reports used in the pilot (step 10)
-PILOT_IDS = {"R001", "R002", "R003", "R006", "R007", "R010", "R017", "R019", "R021", "R023"}
+PILOT_IDS = {"R001", "R002", "R003", "R006", "R007", "R010", "R013", "R017", "R019", "R021", "R023", "R033"}
 
 # ---------------------------------------------------------------- printed text
 TEXT = {
@@ -418,6 +418,12 @@ def write_manifest(reports):
 
 
 if __name__ == "__main__":
+    import sys
     reports = build_reports()
-    render(reports)
+    if "--manifest-only" in sys.argv:
+        # The images already exist and don't change, so I only rewrite the manifest.
+        for r in reports:
+            r["file"] = f"reports/generated/png/{r['report_id']}_{r['variant']}.png"
+    else:
+        render(reports)
     write_manifest(reports)

@@ -63,3 +63,9 @@ I juste checked the fatima application deadline and it once again extanded to Oc
 ## 2026-10-15 (morning)
 
 I made a small notebook to test MedGemma quickly on Colab. It works on the free T4 GPU in bfloat16 and uses 8.6 GB. 
+
+Then I gave it R001, the man of 52 with a PSA of 3.80 and the printed limit "< 4,00". It took 46 seconds. It said the result was slightly above the threshold, but 3.80 is under 4.00. 
+
+When I asked it only for the value, it read 3.80 correctly. So it reads the number fine and gets it wrong when it compares it with the limit. I had expected it to say something like "normal", and it did the opposite for a wrong reason, even if its advice to see a doctor was the one I wanted.
+
+It never used the age of 52 written on the report, and it didn't ask either any question about medicines or older results. It also talked to me as if I were the patient. I'm adding R013 (same report with a decimal point) and R033 (the English version) to my pilot, to see if the comma or the language causes the mistake.
