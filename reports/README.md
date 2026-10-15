@@ -39,4 +39,6 @@ The last date of each CARET series is invented. The earlier dates are calculated
 
 ## Pilot
 
-Ten reports are marked `pilot = 1` in the manifest: R001, R002, R003, R006, R007, R010, R017, R019, R021 and R023. I chose them so the pilot touches every hypothesis that can be tested without photos.
+Twelve reports are marked `pilot = 1` in the manifest: R001, R002, R003, R006, R007, R010, R013, R017, R019, R021, R023 and R033. I first picked ten of them so the pilot touches every hypothesis that can be tested without photos.
+
+After a first try on R001, MedGemma read 3.80 correctly but said it was above the printed limit of 4.00. I added two more reports to see where that comes from. R013 is the same report with a decimal point, and R033 is the English version. If the answer changes, I'll know if it was the comma or the language.
