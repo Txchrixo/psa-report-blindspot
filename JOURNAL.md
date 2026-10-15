@@ -35,6 +35,8 @@ Then I made a two-page document in French and emailed it separately to five urol
 - Dr Jean Cédrick Fouda (Hôpital Central de Yaoundé)
 - Dr Landry Oriole Mbouché (Yaoundé)
 
+![Emails sent to the five urologists](data/screenshot.png)
+
 I also sent a short LinkedIn message to the ones I found there.
 
 I only have about a day, so I'm not expecting much, but one answer would already help. If nobody replies, I'll keep my own levels and say it clearly in the README. Today I start on the data and the fictional reports.
@@ -54,3 +56,5 @@ Tonight I chose the two models and wrote it down in `notes/04-model-choice.md`. 
 Then I made the fictional reports. The lab is called LAMEKA. I searched the name online first, and I didn't find a real lab with it. A script fills the template and saves each page as a PNG for the models and as a PDF. I ended up with 43 reports, built in pairs: same patient, same date, same values, and only one thing changes, so if the answer changes I know why. The French ones are the main set, because most labs in Douala print in French, and the English ones are twins of the same cases. Man 49 from this morning is R021. For the single CARET values I only kept the ones where the level was clear, under 2 or between 4 and 10, and I left the rest out because I wasn't sure without a doctor.
 
 I also started a kind of ethics checklist in `ETHICS.md`. No urologist has answered yet, so the expected levels are still mine. Next I run the pilot on the ten reports marked in the manifest. I don't have much time left, so I might stay up all night.
+
+I juste checked the fatima application deadline and it once again extanded to October 21st 2026, so I might be good. But I'll still try to deliver by 16th, so tomorow basically
