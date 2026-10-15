@@ -3,3 +3,4 @@ __pycache__/
 .env
 reports/generated/html/
 reports/generated/pdf/
+.ipynb_checkpoints/

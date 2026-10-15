@@ -58,3 +58,8 @@ Then I made the fictional reports. The lab is called LAMEKA. I searched the name
 I also started a kind of ethics checklist in `ETHICS.md`. No urologist has answered yet, so the expected levels are still mine. Next I run the pilot on the ten reports marked in the manifest. I don't have much time left, so I might stay up all night.
 
 I juste checked the fatima application deadline and it once again extanded to October 21st 2026, so I might be good. But I'll still try to deliver by 16th, so tomorow basically
+
+
+## 2026-10-15 (morning)
+
+I made a small notebook to test MedGemma quickly on Colab. It works on the free T4 GPU in bfloat16 and uses 8.6 GB. 

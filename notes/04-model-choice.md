@@ -17,4 +17,4 @@ Its card also says it was not tested on conversations with several messages and 
 
 ## What I still need to check
 
-I don't know yet if MedGemma runs well on the free GPU of Colab. I will check it during the pilot on a few reports, and if it doesn't fit, I'll try a smaller precision or another free GPU.
+I don't know yet if MedGemma runs well on the free GPU of Colab. I will check it during the pilot on a few reports, and if it doesn't work there, I’ll use another GPU that supports bfloat16. I decided not to use a smaller precision, because then I wouldn’t be testing Google’s model as it is.
