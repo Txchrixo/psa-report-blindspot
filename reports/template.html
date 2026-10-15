@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="{{ t.html_lang }}">
+<head>
+<meta charset="utf-8">
+<title>{{ r.report_id }}</title>
+<style>
+  /* One A4 page at 96 dpi = 794 x 1123 px. Colours: cream #F9F4EB, gold #C78E3F, dark gold #8A5F22 */
+  @page { size: A4; margin: 0; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: #ffffff; }
+  body { font-family: Arial, Helvetica, "Liberation Sans", sans-serif; color: #1d1a16; }
+  .page { width: 794px; height: 1123px; position: relative; overflow: hidden; background: #fff; }
+  .content { padding: 0 56px; }
+
+  .band { display: flex; align-items: center; gap: 18px; background: #F9F4EB; padding: 22px 56px; }
+  .band .logo { flex: none; width: 66px; height: 66px; }
+  .band .lab { flex: 1; }
+  .lab-name { font-size: 22px; color: #8A5F22; }
+  .lab-info { font-size: 12.5px; color: #6d6458; margin-top: 5px; line-height: 1.5; }
+  .qr-box { flex: none; display: flex; flex-direction: column; align-items: center;
+            border-left: 1px solid #e3d3b6; padding-left: 18px; }
+  .qr-box svg { display: block; width: 84px; height: 84px; }
+  .qr-label { font-size: 8px; color: #a08560; margin-top: 4px; text-align: center; white-space: nowrap; }
+
+  .title-row { display: flex; justify-content: space-between; align-items: baseline; margin: 22px 0 12px 0; }
+  .title { font-size: 15px; letter-spacing: 1.5px; }
+  .file-no { font-size: 13px; color: #6d6458; }
+
+  .patient { display: grid; grid-template-columns: 1fr 1fr; gap: 6px 28px; font-size: 13.5px;
+             border-top: 1px solid #C78E3F; border-bottom: 1px solid #C78E3F; padding: 11px 0; }
+  .patient .k { color: #6d6458; display: inline-block; min-width: 112px; }
+
+  .clinical { font-size: 13px; margin-top: 14px; padding: 8px 12px; background: #F9F4EB; }
+  .clinical .k { color: #8A5F22; }
+
+  table.res { width: 100%; border-collapse: collapse; font-size: 13.5px; margin-top: 22px; table-layout: fixed; }
+  table.res td { padding: 8px 8px; vertical-align: top; }
+  table.res tr.section td { background: #F9F4EB; color: #8A5F22; padding: 7px 8px; }
+  table.res tr.head td { color: #6d6458; font-size: 12px; padding: 6px 8px 5px 8px; }
+  table.res tr.row td { border-top: 1px solid #ece3d3; }
+  table.res td.val { font-weight: bold; white-space: nowrap; }
+  table.res td.ref { font-size: 12.5px; line-height: 1.45; }
+  table.res td.prev { font-size: 12.5px; color: #5c5346; white-space: nowrap; }
+  .sub { font-size: 11.5px; color: #6d6458; }
+
+  .bottom { display: flex; justify-content: space-between; align-items: flex-end; margin-top: 26px; gap: 24px; }
+  table.hist { border-collapse: collapse; font-size: 12.5px; border: 1px solid #ddd2c0; }
+  table.hist td { padding: 4px 16px; }
+  table.hist tr.h td { background: #F9F4EB; color: #8A5F22; }
+  .sign { margin-left: auto; text-align: center; font-size: 13px; width: 210px; }
+  .sign svg { display: block; margin: 4px auto 0 auto; width: 170px; height: 56px; }
+
+  .method { font-size: 12px; color: #6d6458; margin-top: 14px; }
+
+  .footer { position: absolute; left: 56px; right: 56px; bottom: 28px; font-size: 10.5px; color: #8a8175;
+            border-top: 1px solid #ddd2c0; padding-top: 7px; display: flex; justify-content: space-between; }
+</style>
+</head>
+<body>
+<div class="page" id="report">
+
+  <div class="band">
+    <!-- Invented logo. It copies no real laboratory. -->
+    <svg class="logo" viewBox="0 0 54 54" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="27" cy="27" r="25" fill="none" stroke="#C78E3F" stroke-width="2.5"/>
+      <text x="27" y="34" font-family="Georgia, serif" font-size="19" fill="#8A5F22" text-anchor="middle">LM</text>
+    </svg>
+    <div class="lab">
+      <div class="lab-name">{{ t.lab_name }}</div>
+      <div class="lab-info">{{ t.lab_fields }}<br>{{ t.lab_address }}<br>{{ t.lab_phone }}</div>
+    </div>
+    <div class="qr-box">
+      {{ r.qr_svg | safe }}
+      <div class="qr-label">{{ t.qr_label }}</div>
+    </div>
+  </div>
+
+  <div class="content" id="content">
+    <div class="title-row">
+      <span class="title">{{ t.title }}</span>
+      <span class="file-no">{{ t.file_no }} {{ r.file_number }}</span>
+    </div>
+
+    <div class="patient">
+      <div><span class="k">{{ t.patient }}</span>{{ r.patient_name }}</div>
+      <div><span class="k">{{ t.prescriber }}</span>{{ t.prescriber_value }}</div>
+      <div><span class="k">{{ t.age_sex }}</span>{{ r.age }} {{ t.years }} / M</div>
+      <div><span class="k">{{ t.collected }}</span>{{ r.collection_date_print }}</div>
+    </div>
+
+    {% if r.clinical_note_print %}
+    <div class="clinical"><span class="k">{{ t.clinical }}</span> {{ r.clinical_note_print }}</div>
+    {% endif %}
+
+    {% set has_prev = r.previous_print != "" %}
+    {% if r.with_biochemistry %}
+    <table class="res">
+      <colgroup><col style="width:40%"><col style="width:15%"><col style="width:12%"><col></colgroup>
+      <tr class="section"><td colspan="4">{{ t.biochemistry }}</td></tr>
+      <tr class="head"><td>{{ t.test }}</td><td>{{ t.result }}</td><td>{{ t.unit }}</td><td>{{ t.ref }}</td></tr>
+      {% for row in r.biochemistry_print %}
+      <tr class="row"><td>{{ row.name }}</td><td class="val">{{ row.value }}</td><td>{{ row.unit }}</td><td class="ref">{{ row.ref }}</td></tr>
+      {% endfor %}
+    </table>
+    {% endif %}
+
+    <table class="res">
+      {% if has_prev %}
+      <colgroup><col style="width:34%"><col style="width:13%"><col style="width:11%"><col style="width:19%"><col></colgroup>
+      {% else %}
+      <colgroup><col style="width:40%"><col style="width:15%"><col style="width:12%"><col></colgroup>
+      {% endif %}
+      <tr class="section"><td colspan="{{ 5 if has_prev else 4 }}">{{ t.immunology }}</td></tr>
+      <tr class="head"><td>{{ t.test }}</td><td>{{ t.result }}</td><td>{{ t.unit }}</td><td>{{ t.ref }}</td>{% if has_prev %}<td>{{ t.previous }}</td>{% endif %}</tr>
+      <tr class="row">
+        <td>{{ t.psa_total }}<br><span class="sub">{{ t.psa_long }}</span></td>
+        <td class="val">{{ r.psa_print }}</td>
+        <td>{{ r.unit }}</td>
+        <td class="ref">{{ r.range_html | safe }}</td>
+        {% if has_prev %}<td class="prev">{{ r.previous_print }}</td>{% endif %}
+      </tr>
+      {% if r.free_psa_print %}
+      <tr class="row">
+        <td>{{ t.free_psa }}</td><td class="val">{{ r.free_psa_print }}</td><td>{{ r.unit }}</td><td class="ref"></td>
+        {% if has_prev %}<td></td>{% endif %}
+      </tr>
+      <tr class="row">
+        <td>{{ t.free_ratio }}</td><td class="val">{{ r.free_ratio_print }}</td><td>%</td><td class="ref">{{ t.free_ratio_ref }}</td>
+        {% if has_prev %}<td></td>{% endif %}
+      </tr>
+      {% endif %}
+    </table>
+
+    <div class="bottom">
+      {% if r.history_print %}
+      <table class="hist">
+        <tr class="h"><td>{{ t.history }}</td><td>{{ t.psa_total }} ({{ r.unit }})</td></tr>
+        {% for h in r.history_print %}
+        <tr><td>{{ h.date }}</td><td>{{ h.value }}</td></tr>
+        {% endfor %}
+      </table>
+      {% endif %}
+      <div class="sign">{{ t.validated }}
+        <!-- Fake signature, drawn by hand as a path. No name. -->
+        <svg viewBox="0 0 150 48" xmlns="http://www.w3.org/2000/svg">
+          <path d="M10 30 C18 6 30 10 28 26 C26 40 40 20 46 18 C52 16 50 32 58 28 C66 24 70 12 78 20 C84 26 82 34 92 26 C100 20 108 18 118 24 C124 28 132 22 138 18 M30 40 C70 34 110 36 140 32"
+                fill="none" stroke="#1f2a5a" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+      </div>
+    </div>
+
+    <div class="method" id="last-line">{{ t.method }} {{ t.printed_on }} {{ r.edition_date_print }}.</div>
+  </div>
+
+  <div class="footer" id="footer">
+    <span>{{ t.footer }}</span>
+    <span>{{ r.report_id }}</span>
+  </div>
+</div>
+</body>
+</html>

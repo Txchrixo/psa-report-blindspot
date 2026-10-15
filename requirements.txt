@@ -1,0 +1,6 @@
+# Local scripts (data conversion and report generation). Tested with these versions.
+pandas>=2.2          # tested 3.0.5
+pyreadr>=0.5         # tested 0.5.7, only for data/convert_caret.py
+jinja2>=3.1          # tested 3.1.6
+playwright>=1.45     # tested 1.56.0, then run: playwright install chromium
+segno>=1.6           # tested 1.6.6, QR code on the reports
