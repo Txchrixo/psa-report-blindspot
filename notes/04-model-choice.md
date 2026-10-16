@@ -20,4 +20,4 @@ In my first plan MedGemma was the main model and Qwen was the comparison. After 
 
 ## Where they run
 
-Both models load in bfloat16 and use about 9 GB of GPU memory (8.6 GB for MedGemma, 8.9 GB for Qwen). I don't use float16 because Gemma 3 models give broken answers in it, and I don't use a smaller precision because then I wouldn't be testing the models as they are published. In the pilot MedGemma ran on a T4 and Qwen on an L4. For the full run I'll use the same GPU and the same version of the libraries for both.
+Both models load in bfloat16 and use about 9 GB of GPU memory (8.6 GB for MedGemma, 8.9 GB for Qwen). I don't use float16 because Gemma 3 models give broken answers in it, and I don't use a smaller precision because then I wouldn't be testing the models as they are published. In the pilot MedGemma ran on a T4 and Qwen on an L4. For the full run both run on an L4 with transformers 5.20, so they are in the same conditions.
