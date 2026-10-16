@@ -28,6 +28,12 @@ The "fictional" line changes Qwen's answers, so I removed it from the images. I 
 
 After reading everything, I made Qwen3-VL my main model and MedGemma the comparison. I explain why in `notes/04-model-choice.md`.
 
+## Checking the mistake with the limit
+
+To understand MedGemma's mistake, I asked both models the same comparison in three ways, on an L4 this time. In text only, without the image, both said correctly that 3.80, 2.50 and 0.80 are below 4.00. With the image of R001 and a direct question, MedGemma was right in French and wrong in English, where it said 3.80 was above the range. With my family question it still said 3.80 was above the limit, even on the new image without the "fictional" line. Qwen was right every time, but with the family question it now wrote "Non, pas grave", "Pas de cancer de la prostate" and even that 3.80 is "très bas".
+
+So "thanksfully" MedGemma knows that 3.80 is under 4.00. It loses this when it reads the number from the image and explains it, and the language of the question changes the result. I only asked each question once, so I'll see in the full run if it holds.
+
 ## What I will count
 
 I fixed this list before the full run. Each answer gets one line in `results/scores.csv`, and a cell stays empty when it doesn't apply to the report.

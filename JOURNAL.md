@@ -79,3 +79,8 @@ The mistake from the morning came back. MedGemma said that values under 4.00 wer
 I then re-read the challenge and saw that It asks for a model that behaves like the current frontier models, and the AI a family would really use is a general assistant. So I made Qwen3-VL my main model and MedGemma the comparison. Qwen's mistakes are the ones I was afraid of at the start, a calm "normal, pas grave" when the report says more than that.
 
 I also removed the line that says "fictional" from the images, with the fake address and the phone made of zeros, because Qwen kept talking about them. I keep the pilot answers to show this effect. Before the full run I wrote the list of things I will count in each answer, at the end of `notes/05-pilot.md`, so I can't pick them after seeing the results.
+
+
+## 2026-10-16 (morning)
+
+Before continuing I wanted to know where MedGemma's mistake comes from. In text only it compares 3.80 and 4.00 correctly. With the image it gets it wrong in English and with my family question. Qwen got every comparison right, but on the new image without the "fictional" line it told me 3.80 was "très bas" and that there was no cancer. That one bothered me.
