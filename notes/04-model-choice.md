@@ -1,20 +1,23 @@
-# Ny Model choice
+# Model choice
 
-The challenge asked me to write an open model between 0.6 and 6 billion parameters that behaves like current frontier models and that I can run myself. I have chosen two models, one medical, and one general, as I want to test whether a model trained for medicine reads a PSA report better than a general model of the same size.
+The challenge asked me to pick an open model between 0.6 and 6 billion parameters that behaves like the current frontier models, and that I can run myself. I chose two models. The main one is a general model, because that is the kind of assistant a family would use. The second one is a medical model, to see if a model made for medicine does better on the same reports.
 
-## The main one: MedGemma 1.5 4B
+## The main one: Qwen3-VL 4B
 
-[MedGemma 1.5 4B](https://huggingface.co/google/medgemma-1.5-4b-it) is a medical model by Google, based on Gemma 3, that has about 4 billion parameters. It accepts images and text, so I can send it a photo of a report directly. The model card for this model states that it can read lab reports and extract values and units from them, which is exactly what I need to do.
+[Qwen3-VL-4B-Instruct](https://huggingface.co/Qwen/Qwen3-VL-4B-Instruct) is a general model from Alibaba with about 4 billion parameters, under the Apache 2.0 licence. It reads images and answers like a chat assistant. When my aunt shared the photo of my uncle's results, the AI someone in the family could have asked is ChatGPT, Gemini or Meta AI inside WhatsApp. These are general assistants, and Qwen3-VL is the closest to them that I can load myself. Google also puts it next to MedGemma 1.5 in its technical report, even if they couldn't run all their tests with it.
 
-In my literature notes I wrote that its technical report tests this mostly on PDF reports, plus 14 report images, and that the task was to extract values and not to explain what they mean for a specific man. So I'm testing it on something close to what it claims to do, but in the conditions of a family, with a phone photo, WhatsApp compression and missing information. If a model made for medicine fails there, I think the blind spot is more convincing than with a general model.
+## The comparison model: MedGemma 1.5 4B
 
-Its card also says it was not tested on conversations with several messages and that it is more sensitive to the way the prompt is written than Gemma 3. I will keep the same prompt for every report so this doesn't change my results. To download it, I have to accept the Health AI Developer Foundations terms on Hugging Face.
+[MedGemma 1.5 4B](https://huggingface.co/google/medgemma-1.5-4b-it) is a medical model by Google, built on Gemma 3, with about 4 billion parameters. It also accepts images. Its model card says it can read lab reports and extract the values and units, which is close to my task.
 
+In my literature notes I wrote that its technical report tests this mostly on PDF reports, plus 14 report images, and that the task was to extract values and not to explain them for a specific man. So I test it in the conditions of a family, with a phone photo, WhatsApp compression and missing information. Its card also says it is more sensitive to the way the prompt is written than Gemma 3, and that it was not tested on conversations with several messages. I keep the same prompt for every report. To download it I accepted the Health AI Developer Foundations terms on Hugging Face.
 
-## The comparison model: Qwen3-VL 4B
+The two models differ in many ways. They come from different companies, and Qwen looks at the image in much more detail (about 3,500 input tokens against about 290 for MedGemma). So if they answer differently, I can't say that the medical training is the reason. I can only describe how each one behaves.
 
-[Qwen3-VL-4B-Instruct](https://huggingface.co/Qwen/Qwen3-VL-4B-Instruct) is a general model from Alibaba of about the same size, which also reads images, under the Apache 2.0 licence. I picked it because Google itself puts it next to MedGemma 1.5 in its technical report, even if they couldn't run all their tests with it. Comparing the two should tell me if the medical training helps, or if both models make the same mistakes.
+## Why the main model changed
 
-## What I still need to check
+In my first plan MedGemma was the main model and Qwen was the comparison. After the pilot I swapped them. MedGemma made big mistakes, like saying that 3.80 is above 4.00, but a family is unlikely to use a medical model like this one. Qwen made quieter mistakes. It said "normal, pas grave" for 3.80 at 52, and it read the finasteride note without changing its conclusion. This is the comforting answer without all the data that I wrote about at the very beginning, so I want it at the center of the study.
 
-I don't know yet if MedGemma runs well on the free GPU of Colab. I will check it during the pilot on a few reports, and if it doesn't work there, I’ll use another GPU that supports bfloat16. I decided not to use a smaller precision, because then I wouldn’t be testing Google’s model as it is.
+## Where they run
+
+Both models load in bfloat16 and use about 9 GB of GPU memory (8.6 GB for MedGemma, 8.9 GB for Qwen). I don't use float16 because Gemma 3 models give broken answers in it, and I don't use a smaller precision because then I wouldn't be testing the models as they are published. In the pilot MedGemma ran on a T4 and Qwen on an L4. For the full run I'll use the same GPU and the same version of the libraries for both.

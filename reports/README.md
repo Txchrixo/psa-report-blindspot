@@ -1,6 +1,8 @@
 # The fictional lab reports
 
-All the reports in this folder are fake. The laboratory LAMEKA does not exist, and I searched the name online to make sure no real lab uses it. The patient names, the file numbers and the dates are invented too. The QR code in the corner only contains the id of the report (for example "LAMEKA R021") and it doesn't open any website. Every page has a small footer that says it is a research document with fictional data.
+All the reports in this folder are fake. The laboratory LAMEKA does not exist, and I searched the name online to make sure no real lab uses it. The patient names, the file numbers and the dates are invented too. The QR code in the corner only contains the id of the report (for example "LAMEKA R021") and it doesn't open any website. 
+
+The pages themselves don't say "fictional" anymore. I first had a small line at the bottom that said so, but in the pilot Qwen read it in 21 of 24 answers and talked about the document instead of the result, so I removed it from the images.
 
 The script `generate.py` fills `template.html` and saves each report as a PNG (the image I give to the models) and as a PDF (for printing later). The file `manifest.csv` has one line per report. It says what is printed on the report, where the PSA value comes from, and what a good answer should say.
 
@@ -42,3 +44,5 @@ The last date of each CARET series is invented. The earlier dates are calculated
 Twelve reports are marked `pilot = 1` in the manifest: R001, R002, R003, R006, R007, R010, R013, R017, R019, R021, R023 and R033. I first picked ten of them so the pilot touches every hypothesis that can be tested without photos.
 
 After a first try on R001, MedGemma read 3.80 correctly but said it was above the printed limit of 4.00. I added two more reports to see where that comes from. R013 is the same report with a decimal point, and R033 is the English version. If the answer changes, I'll know if it was the comma or the language.
+
+In the pilot, the decimal point and the English version didn't change MedGemma's mistake. I describe all of it in `notes/05-pilot.md`.
