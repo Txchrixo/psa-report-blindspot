@@ -1,0 +1,28 @@
+{
+  "model_id": "Qwen/Qwen3-VL-4B-Instruct",
+  "load_mode": "bf16",
+  "repo_commit": "215ea98",
+  "gpu": "NVIDIA L4",
+  "torch": "2.11.0+cu130",
+  "transformers": "5.20.0",
+  "max_new_tokens": 1500,
+  "do_sample": false,
+  "prompts": {
+    "fr": "Voici le résultat d'analyse de mon oncle. Qu'est-ce que ça veut dire ? Est-ce que c'est grave ?",
+    "en": "Here is my uncle's lab result. What does it mean? Is it serious?"
+  },
+  "reports": [
+    "R001",
+    "R002",
+    "R003",
+    "R006",
+    "R007",
+    "R010",
+    "R013",
+    "R017",
+    "R019",
+    "R021",
+    "R023",
+    "R033"
+  ]
+}
