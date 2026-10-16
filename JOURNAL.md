@@ -84,3 +84,9 @@ I also removed the line that says "fictional" from the images, with the fake add
 ## 2026-10-16 (morning)
 
 Before continuing I wanted to know where MedGemma's mistake comes from. In text only it compares 3.80 and 4.00 correctly. With the image it gets it wrong in English and with my family question. Qwen got every comparison right, but on the new image without the "fictional" line it told me 3.80 was "très bas" and that there was no cancer. That one bothered me.
+
+## 2026-10-16 (evening)
+
+I ran the full test on the 43 reports, first Qwen and then MedGemma, both on an L4. It took about two hours and every answer is there. Without the "fictional" line, no answer talks about a fake document anymore.
+
+A first look before I score anything. MedGemma still says that values under 4.00 are above the limit, even for 1.03 or 0.80, but it never tells the family that everything is fine. Qwen reads the numbers well and then reassures too much. It wrote things like "pas de cancer" on reports where my expected level is 2 or 3. On R002 it called a PSA under finasteride "très normal", and on R009 it blamed the rectal exam for the rise. Two of its French answers repeated "Conclusion finale" until they were cut.
