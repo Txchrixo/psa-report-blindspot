@@ -114,3 +114,7 @@ English question
 
 R024_light_wa is also the only answer without the PSA value.
 
+Then I ran MedGemma on the same photos, 344 answers too. For this run I set the token limit to 2000, like its model card. Its longest answer was 819 tokens, so nothing was cut, and the limit doesn't change anything compared with Qwen.
+
+It read the PSA value in 324 of the 344 answers. 19 of the 20 answers without the value were with the French question, and they only said to see a doctor without explaining the result. Like on the files, most of its French answers start by saying it is not a health professional and can't interpret the result. Only one answer said the value was not clearly visible on the image (R039_light_wa, French question).
+
