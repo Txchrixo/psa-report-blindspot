@@ -90,3 +90,9 @@ Before continuing I wanted to know where MedGemma's mistake comes from. In text 
 I ran the full test on the 43 reports, first Qwen and then MedGemma, both on an L4. It took about two hours and every answer is there. Without the "fictional" line, no answer talks about a fake document anymore.
 
 A first look before I score anything. MedGemma still says that values under 4.00 are above the limit, even for 1.03 or 0.80, but it never tells the family that everything is fine. Qwen reads the numbers well and then reassures too much. It wrote things like "pas de cancer" on reports where my expected level is 2 or 3. On R002 it called a PSA under finasteride "très normal", and on R009 it blamed the rectal exam for the rise. Two of its French answers repeated "Conclusion finale" until they were cut.
+
+## 2026-10-17 (night, finished after 1 am)
+
+I printed all 43 reports and took two photos of each one with my phone, one in daylight and one in the shade. The shade photos came out at 200 megapixels, so I keep a lighter copy in the repo and the originals stay on my computer. 
+
+I first wrote a small script to imitate WhatsApp compression, then I decided to send the real photos through WhatsApp and download them back, because that is what people use here to share informations. I kept only the real ones and I didn't take photos at an angle in the end, so I have two light conditions and WhatsApp.
