@@ -96,3 +96,21 @@ A first look before I score anything. MedGemma still says that values under 4.00
 I printed all 43 reports and took two photos of each one with my phone, one in daylight and one in the shade. The shade photos came out at 200 megapixels, so I keep a lighter copy in the repo and the originals stay on my computer. 
 
 I first wrote a small script to imitate WhatsApp compression, then I decided to send the real photos through WhatsApp and download them back, because that is what people use here to share informations. I kept only the real ones and I didn't take photos at an angle in the end, so I have two light conditions and WhatsApp.
+
+
+## 2026-10-18 (morning)
+
+I ran Qwen on the 172 photos with the French and the English question, so 344 answers. It read the PSA value on 343 of them, even on the WhatsApp photos in the shade, and it never said a photo was hard to read. 6 answers stopped at the token limit (1500).
+
+French question
+- R005_light
+- R024_light_wa
+- R028_shade_wa
+- R035_light
+- R036_shade
+
+English question
+- R037_light_wa
+
+R024_light_wa is also the only answer without the PSA value.
+
