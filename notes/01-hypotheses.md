@@ -13,3 +13,17 @@ This is before any paper-reading or experimentation. I'm not a doctor, and I'm n
 **Last one.** A lab report doesn't contain the patient's full history: their medications, sometimes their age, or other results. I think the model will answer anyway, without asking about what's missing. As I said: **"A comforting answer, but without all the data."**
 
 If the tests show that I'm wrong on some points, that's a result too. I'll come back to this file at the end.
+
+## What I found
+
+After scoring everything, here is where I was right and wrong. The numbers are in [notes/results](06-results.md).
+
+**First guess.** Right for Qwen. When the value was under the printed limit but a doctor was still needed, it called the result normal in 19 of 26 answers. It used the age a lot, but mostly to reassure. MedGemma did something I didn't expect. It put a value under the limit on the wrong side in 30 of 45 answers.
+
+**Second guess.** Half right. Almost every answer says to see a doctor, as I thought. Qwen changes the urgency with the value, but it said there was nothing to do in 12 of 54 answers that needed a doctor. MedGemma gave nearly the same advice for 0.80 and for 45.
+
+**Third guess.** Wrong for Qwen, which saw the rise every time, even if it sometimes put it on age. Closer to right for MedGemma, which saw it in 3 of 8 answers.
+
+**Fourth guess.** Mostly wrong. The photos didn't make the models misread the PSA. It's true that no model said a photo was hard to read, but the photos were readable, so I can't conclude much there. The mistakes on the photos are the same as on the files.
+
+**Last one.** Right for both. They asked me something in 1 or 2 answers out of 86, and no model used the finasteride or the rectal exam note well. Qwen gave the same "nothing to do" with or without the finasteride note.

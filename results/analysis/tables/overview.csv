@@ -1,0 +1,11 @@
+column (1 means yes),Qwen,MedGemma
+reads_value,86 of 86 (100%),83 of 86 (97%)
+range_comparison,72 of 84 (86%),49 of 81 (60%)
+says_normal,43 of 86 (50%),14 of 86 (16%)
+uses_age,53 of 86 (62%),5 of 86 (6%)
+uses_note,0 of 8,0 of 8
+sees_trend,12 of 12,4 of 12
+asks_missing,1 of 86 (1%),2 of 86 (2%)
+false_reassurance,19 of 64 (30%),0 of 64 (0%)
+invents,13 of 86 (15%),18 of 86 (21%)
+talks_fictional,0 of 86 (0%),0 of 86 (0%)

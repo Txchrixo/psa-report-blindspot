@@ -138,3 +138,9 @@ MedGemma still put the value on the wrong side of the limit, like saying 3.80 is
 Qwen still reassured too much, saying "not serious" or "no cancer" when the result needed a doctor. It did it in 20 of the 36 photo answers where a doctor was expected, a bit more than half. On the files it was 5 of 9, also a bit more than half.
 
 So the photo doesn't really change these two mistakes, the models already make them on the clean file.
+
+## 2026-10-19 (night, after 1 am)
+
+I wrote the analysis script (assisted by claude). It counts the scores for each hypothesis and draws two figures, and I wrote the results in notes/06-results.md. I also came back to my hypotheses, like I said I would.
+
+My biggest surprise is that the two models fail in opposite ways. Qwen reads the limit right and then reassures too much. MedGemma gets the limit wrong, and that mistake often makes it ask for a doctor, so it basically lands on the right advice for the wrong reason.

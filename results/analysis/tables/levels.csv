@@ -1,0 +1,7 @@
+model,expected level,answers,gave 1,gave 2,gave 3,no advice
+Qwen,1,22,21,1,0,0
+Qwen,2,54,12,35,7,0
+Qwen,3,10,0,1,9,0
+MedGemma,1,22,2,20,0,0
+MedGemma,2,54,0,51,3,0
+MedGemma,3,10,0,5,5,0

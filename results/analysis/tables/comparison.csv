@@ -1,0 +1,8 @@
+"wrong side of the limit, when it compares",Qwen,MedGemma
+value below the printed limit,11 of 46 (24%),30 of 45 (67%)
+value above the printed limit,1 of 38 (3%),2 of 36 (6%)
+question in French,7 of 42 (17%),15 of 39 (38%)
+question in English,5 of 42 (12%),17 of 42 (40%)
+report in µg/L,0 of 6,2 of 6
+report with a decimal point,2 of 6,3 of 5
+report in English,4 of 22 (18%),9 of 22 (41%)

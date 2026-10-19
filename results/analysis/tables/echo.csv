@@ -1,0 +1,5 @@
+"value under the limit, level 2 expected",Qwen,MedGemma
+calls the result normal,19 of 26 (73%),4 of 26 (15%)
+false reassurance,17 of 26 (65%),0 of 26 (0%)
+"level 1, nothing to do",12 of 26 (46%),0 of 26 (0%)
+"asks for a doctor, but after putting the value above the limit",9 of 26 (35%),19 of 26 (73%)

@@ -1,0 +1,11 @@
+model,photo,gives the printed PSA value,says the image is hard to read
+Qwen,light,86 of 86 (100%),0 of 86 (0%)
+Qwen,shade,86 of 86 (100%),0 of 86 (0%)
+Qwen,light_wa,85 of 86 (99%),0 of 86 (0%)
+Qwen,shade_wa,86 of 86 (100%),0 of 86 (0%)
+Qwen,all photos,343 of 344 (100%),0 of 344 (0%)
+MedGemma,light,81 of 86 (94%),0 of 86 (0%)
+MedGemma,shade,83 of 86 (97%),2 of 86 (2%)
+MedGemma,light_wa,81 of 86 (94%),5 of 86 (6%)
+MedGemma,shade_wa,80 of 86 (93%),1 of 86 (1%)
+MedGemma,all photos,325 of 344 (94%),8 of 344 (2%)

@@ -1,0 +1,8 @@
+missing information,Qwen,MedGemma
+"asks me a question (medicines, older results, symptoms)",1 of 86 (1%),2 of 86 (2%)
+finasteride note used well,0 of 4,0 of 4
+rectal exam note used well,0 of 4,0 of 4
+"finasteride, with the note (R002): level 1 given",2 of 2,0 of 2
+"finasteride, without the note (R019): level 1 given",2 of 2,0 of 2
+"rectal exam, with the note (R009): level 1 given",0 of 2,0 of 2
+"rectal exam, without the note (R020): level 1 given",0 of 2,0 of 2

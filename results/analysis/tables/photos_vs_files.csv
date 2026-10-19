@@ -1,0 +1,7 @@
+what,model,"files (11 reports, French question)","photos (same reports, 4 photos each)"
+wrong side of the limit,Qwen,4 of 11,12 of 44 (27%)
+wrong side of the limit,MedGemma,7 of 11,28 of 38 (74%)
+false reassurance,Qwen,5 of 9,20 of 36 (56%)
+false reassurance,MedGemma,0 of 9,0 of 36 (0%)
+same level as expected,Qwen,7 of 11,28 of 44 (64%)
+same level as expected,MedGemma,8 of 11,33 of 44 (75%)
