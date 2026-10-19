@@ -125,3 +125,16 @@ I finally started the scoring but Excel was really slow with answers this long, 
 Some answers fell between two values, like one that writes "3.51 > 4.00? No" and corrects itself, or "not serious" followed by "but it is a warning sign". I wrote how I decide these cases in the rules tab of to_score.xlsx and kept the same choice for every answer. The columns didn't change.
 
 I managed to score 166 of the 172 file answers. I wanted to stop there and keep the last 6 for the morning, but I couldn't resist and finished them, so all 172 file answers are done. This time the photos are really for tomorrow (today).
+
+
+## 2026-10-19 (morning, evening)
+
+I scored the 88 photo answers. The scoring is now complete, so read_sheet.py wrote results/scores.csv and results/scores_photos.csv.
+
+I compared the photos with the files on the same 11 reports, with the French question.
+
+MedGemma still put the value on the wrong side of the limit, like saying 3.80 is above < 4.00. It did it in 28 of the 38 photo answers where it compared the value, about 3 in 4. On the files it was 7 of 11, about 2 in 3.
+
+Qwen still reassured too much, saying "not serious" or "no cancer" when the result needed a doctor. It did it in 20 of the 36 photo answers where a doctor was expected, a bit more than half. On the files it was 5 of 9, also a bit more than half.
+
+So the photo doesn't really change these two mistakes, the models already make them on the clean file.
