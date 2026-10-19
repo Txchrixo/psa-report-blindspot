@@ -55,3 +55,5 @@ I fixed this list before the full run. Each answer gets one line in `results/sco
 I also note `level_given`, the urgency level of its advice (1, 2 or 3, as defined in my clinical notes), and a short `note` when something surprises me.
 
 I left out "tells the family to see a doctor", because almost every answer in the pilot did it, so it wouldn't tell me much.
+
+When I started scoring, some answers didn't  really fit one value cleanly, so I wrote more precise rules for these cases, for example a value put on both sides of the limit counts as 0. They are in the rules tab of `results/scoring/to_score.xlsx`.

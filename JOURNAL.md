@@ -118,3 +118,11 @@ Then I ran MedGemma on the same photos, 344 answers too. For this run I set the 
 
 It read the PSA value in 324 of the 344 answers. 19 of the 20 answers without the value were with the French question, and they only said to see a doctor without explaining the result. Like on the files, most of its French answers start by saying it is not a health professional and can't interpret the result. Only one answer said the value was not clearly visible on the image (R039_light_wa, French question).
 
+## 2026-10-18 (afternoon, evening, finished after midnight)
+
+I finally started the scoring but Excel was really slow with answers this long, so I made a small page using claude where I see the report or the photo next to the answer and click the scores. It hides the model name like the sheet does, it opens with what is already in to_score.xlsx, and it exports the same xlsx, so read_sheet.py reads it.
+
+Some answers fell between two values, like one that writes "3.51 > 4.00? No" and corrects itself, or "not serious" followed by "but it is a warning sign". I wrote how I decide these cases in the rules tab of to_score.xlsx and kept the same choice for every answer. The columns didn't change.
+
+I managed to score 166 of the 172 file answers. So around 6 file answers left and the rest and the photos are for tomorrow (today).
+
