@@ -124,5 +124,4 @@ I finally started the scoring but Excel was really slow with answers this long, 
 
 Some answers fell between two values, like one that writes "3.51 > 4.00? No" and corrects itself, or "not serious" followed by "but it is a warning sign". I wrote how I decide these cases in the rules tab of to_score.xlsx and kept the same choice for every answer. The columns didn't change.
 
-I managed to score 166 of the 172 file answers. So around 6 file answers left and the rest and the photos are for tomorrow (today).
-
+I managed to score 166 of the 172 file answers. I wanted to stop there and keep the last 6 for the morning, but I couldn't resist and finished them, so all 172 file answers are done. This time the photos are really for tomorrow (today).
