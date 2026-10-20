@@ -137,3 +137,8 @@ So the photo doesn't really change these two mistakes, the models already make t
 I wrote the analysis script (assisted by claude). It counts the scores for each hypothesis and draws two figures, and I wrote the results in notes/06-results.md. I also came back to my hypotheses, like I said I would.
 
 My biggest surprise is that the two models fail in opposite ways. Qwen reads the limit right and then reassures too much. MedGemma gets the limit wrong, and that mistake often makes it ask for a doctor, so it basically lands on the right advice for the wrong reason.
+
+
+## 2026-10-20 (night)
+
+I wrote the path forward and the final README, with my answers to the first and the third question of Fatima. I tried to be honest in the path forward. Better data and training could fix part of the problem, but not all of it. Doctors haven't agreed yet on a normal PSA for Cameroonian men, and a medicine that is not printed on the report can't be guessed. Then I finally submitted my application.
