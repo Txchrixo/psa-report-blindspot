@@ -83,7 +83,7 @@ When a report mentions one of the other situations, I would expect a good answer
 
 ## Very high values and Cameroon
 
-In my literature notes I wrote about a study from Douala where the average PSA at diagnosis was around 43, and I said I took it with some caution because of the publisher. While preparing this file I found a study by Dr Mbouché and colleagues on 232 men who had a prostate biopsy in Yaoundé ([African Urology, 2024](https://africanurology.com/index.php/au/article/view/125)). The PSA of these men went from 4 to 49,700 ng/mL, with a median of 45. A median of 45 means that half of them had a PSA above 45 and half had a PSA below 45. That is more than ten times the printed limit of 4.
+In my literature notes I wrote about a study from Douala where the average PSA at diagnosis was around 43, and I said I took it with some caution because of the publisher. While preparing this file I found a study by Mbouché et al. on 232 men who had a prostate biopsy in Yaoundé ([African Urology, 2024](https://africanurology.com/index.php/au/article/view/125)). The PSA of these men went from 4 to 49,700 ng/mL, with a median of 45. A median of 45 means that half of them had a PSA above 45 and half had a PSA below 45. That is more than ten times the printed limit of 4.
 
 Cancer was found in 147 of the 232 men, and 131 of these 147 cancers were classed as high-risk. I have to be careful with these numbers because these men had already been sent for a biopsy, so they do not represent all men in Cameroon. Still, in this group, many men reached the biopsy with a very high PSA.
 
@@ -127,10 +127,10 @@ I also found different advice about the rectal exam. Some lab pages say to wait 
 
 The papers on PSA over time also make me unsure how strongly a rising series should be flagged. For now, I will expect the model to notice the rise and suggest showing it to a doctor, but not to use the rise alone to say that there is cancer or that a biopsy is needed.
 
-## Questions for Dr Mbouché
+## Questions for a urologist
 
 I would like to ask him which limits he would use in his own practice for a Cameroonian man of 50, 60 and 70 years old. I also want to know from what rise between two tests he would start to worry, and which information missing from a report would change his reading the most. I would ask him whether my three urgency levels and the time given for each level make sense, and whether he would change the level of any of the cases above. My last question is whether a model that answers "normal" for case 1 is wrong, incomplete or acceptable in his opinion.
 
 ## What happens next
 
-I'm going to send a short summary of this file to Dr Mbouché with an email. While I wait for his answer, I will prepare the data and the fictional reports. If I do not get an answer before I run the tests, I will use the fixed levels in this file and clearly say that they are my draft scoring rules. I will update this file if he sends corrections later.
+I'm going to send a short summary of this file to urologists in Cameroon by email. While I wait for his answer, I will prepare the data and the fictional reports. If I do not get an answer before I run the tests, I will use the fixed levels in this file and clearly say that they are my draft scoring rules. I will update this file if he sends corrections later.

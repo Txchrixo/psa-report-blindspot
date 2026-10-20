@@ -28,14 +28,7 @@ I was also surprised that the small finasteride pill for hair loss lowers the PS
 
 I gave each of my nine cases a fixed level, so I can still run my tests if no doctor answers. I also added a safety rule for serious symptoms, because then the symptoms matter more than the PSA.
 
-Then I made a two-page document in French and emailed it separately to five urologists who published on prostate cancer in Cameroon:
-- Dr Frantz Guy Epoupa Ngalle (Hôpital Général de Douala)
-- Dr Marcella Biyouma (Hôpital Laquintinie, Douala)
-- Dr Cyril Kamadjou (Douala)
-- Dr Jean Cédrick Fouda (Hôpital Central de Yaoundé)
-- Dr Landry Oriole Mbouché (Yaoundé)
-
-![Emails sent to the five urologists](data/screenshot.png)
+Then I made a two-page document in French and emailed it separately to five urologists who published on prostate cancer in Cameroon, three in Douala and two in Yaoundé. I don't write their names here because none of them answered yet, and I didn't ask them if I could.
 
 I also sent a short LinkedIn message to the ones I found there.
 
