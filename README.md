@@ -4,7 +4,9 @@ My uncle passed away a while ago after a long battle with prostate cancer. I rem
 
 **The things here are entirely imaginary.** The lab called LAMEKA does not exist. The patients, file numbers, dates are made up. I only care about the way the 2 AI models would respond to questions. This is not a tool. Here you cannot know whether someone has cancer or not.
 
-Here's the bucket of all the files: 
+Here's the bucket of all the files: ***https://huggingface.co/buckets/txchrixo/psa-report-blindspot.***
+
+The GitHub repo has the whole journey, from the first note to the last score: ***https://github.com/txchrixo/psa-report-blindspot***
 
 ## 1. The blindspot
 
