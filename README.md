@@ -8,6 +8,8 @@ Here's the bucket of all the files: ***https://huggingface.co/buckets/txchrixo/p
 
 The GitHub repo has the whole journey, from the first note to the last score: ***https://github.com/txchrixo/psa-report-blindspot***
 
+You can read all the answers of the 2 models with my scores here: ***https://huggingface.co/spaces/txchrixo/psa-answers***
+
 ## 1. The blindspot
 
 If you get your family to send the picture of a lab result to an AI and they ask "What does it mean? Is it bad?", the model will look at the value and the range that is in the picture and will respond to that. However, a PSA that is below the "< 4.00" that is printed on it may require a doctor. It will depend on the age of the man, his medications (for example finasteride reduces the PSA value by roughly 50%). It may also depend on his previous scores. Is it increasing? Etc. But most of these things are not in the picture, and the model will not ask any questions.
